@@ -130,6 +130,11 @@
 
     main.insertBefore(vHome, main.firstChild);
 
+    // Today's class strip sits right below the group-photo hero
+    const heroEl = vHome.querySelector('.g-hero');
+    const todayEl = document.getElementById('todayStrip');
+    if (heroEl && todayEl) heroEl.after(todayEl);
+
     // Build Academic subtabs bar
     const acadBar = document.createElement('div');
     acadBar.id = 'acadTabs';
@@ -212,7 +217,6 @@
     const vHome = $('#v-home');
     const acadBar = $('#acadTabs');
     const labBar = $('#labTabs');
-    const notices = $('#notices');
     const todayStrip = $('#todayStrip');
 
     const acadIds = ACAD_TABS.map(t => t.id);
@@ -220,7 +224,6 @@
     const singleViews = ['board', 'library', 'dnacard', 'teachers', 'community', 'gallery', 'settings'];
 
     if (vHome) vHome.hidden = currentView !== 'home';
-    if (notices) notices.hidden = currentView !== 'home';
     if (todayStrip) todayStrip.hidden = currentView !== 'home';
     if (acadBar) acadBar.hidden = currentView !== 'academic';
     if (labBar) labBar.hidden = currentView !== 'lab';

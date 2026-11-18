@@ -70,6 +70,7 @@ div#app:nth-of-type(1) > div:nth-of-type(2) > main#main:nth-of-type(1) > div#v-h
 .g-hero .go:hover{filter:brightness(1.06)} .g-hero .go.sec:hover{border-color:var(--accent)}
 .g-ph{margin:0;position:relative;min-height:360px}
 .g-ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 38%;display:block}
+.dash #todayStrip{grid-column:1/-1}.dash #todayStrip .wrap{max-width:none}
 .g-qa{grid-column:span 8}
 .g-ev{grid-column:span 4;border-radius:22px;border:1px solid var(--line);background:var(--card);padding:20px 22px;display:flex;flex-direction:column;box-shadow:var(--shadow)}
 .panel-h{display:flex;align-items:center;gap:10px;font:700 20px var(--f-head);color:var(--ink);margin:0 0 14px}
@@ -172,4 +173,4 @@ html.rm .botany{animation:none}
 .lb-add b{display:block} .lb-add span{color:var(--muted);font-size:14px}
 @media(max-width:1100px){.rt-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.lb-body{grid-template-columns:1fr}}
 @media(max-width:560px){.rt-grid{grid-template-columns:1fr}.nb-top time{margin-left:0;width:100%}}
-@media print{.sbar,.topbar,.subtabs,footer,#boot,.rt-head button,#notices,.strips,#todayStrip{display:none!important}.rt-day{break-inside:avoid}body{background:#fff}.rt-grid{grid-template-columns:repeat(5,1fr)}}
+@media print{.sbar,.topbar,.subtabs,footer,#boot,.rt-head button,.strips,#todayStrip{display:none!important}.rt-day{break-inside:avoid}body{background:#fff}.rt-grid{grid-template-columns:repeat(5,1fr)}}
