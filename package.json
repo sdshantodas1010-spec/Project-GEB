@@ -1,0 +1,20 @@
+{
+  "name": "genesis-22",
+  "version": "4.0.0",
+  "private": true,
+  "description": "GENESIS 22: SUST ৩৬তম ব্যাচ, জেনেটিক ইঞ্জিনিয়ারিং ও বায়োটেকনোলজি বিভাগ",
+  "scripts": {
+    "build": "node build-data.js",
+    "dev": "node build-data.js && node server.js",
+    "start": "node server.js",
+    "lint": "node --check server.js && node --check build-data.js"
+  },
+  "dependencies": {
+    "express": "^4.21.2"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/node": "^22.14.0",
+    "tsx": "^4.21.0"
+  }
+}

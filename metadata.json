@@ -1,0 +1,6 @@
+{
+  "name": "GEB স্টুডেন্ট হাব — GENESIS 22",
+  "description": "Genetic Engineering and Biotechnology (GEB), SUST — ১ম থেকে ৪র্থ বর্ষের সিলেবাস, কোর্স কনটেন্ট, বিগত বছরের ফাইনাল ও টার্ম টেস্টের প্রশ্ন এক জায়গায়।",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
