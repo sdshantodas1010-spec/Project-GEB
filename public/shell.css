@@ -1,0 +1,99 @@
+/* GEB Hub App Shell layout: sidebar, topbar, view switching, notice popovers */
+.app { display: flex; min-height: 100vh; }
+
+.sbar {
+  width: 256px; flex: none; display: flex; flex-direction: column; padding: 18px 14px;
+  position: sticky; top: 0; height: 100vh; z-index: 400; transition: transform .25s ease;
+}
+.brand {
+  display: flex; align-items: center; gap: 12px; padding: 6px 8px 18px;
+  text-decoration: none; color: inherit;
+}
+.brand .bt b { display: block; font: 800 20px/1.1 var(--f-head); color: #fff; }
+.brand .bt em { display: block; font-style: normal; font-size: 11.5px; margin-top: 2px; }
+.snav { flex: 1; display: grid; gap: 4px; align-content: start; overflow-y: auto; }
+.snav a {
+  position: relative; display: flex; align-items: center; gap: 11px; padding: 10px 12px;
+  border-radius: 12px; text-decoration: none; font-weight: 600; font-size: 15px; transition: all .15s;
+}
+.snav a svg { width: 19px; height: 19px; flex: none; stroke: currentColor; fill: none; stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; }
+.snav a.on::before { content: ""; position: absolute; left: 0; top: 8px; bottom: 8px; width: 3.5px; border-radius: 4px; }
+.sfoot { padding-top: 14px; }
+.sfoot .card { border-radius: 16px; padding: 14px; text-align: center; display: grid; gap: 2px; place-items: center; }
+.sfoot .card svg { width: 24px; height: 24px; fill: none; stroke-width: 1.8; margin-bottom: 4px; }
+.sfoot .card b { font: 700 14.5px var(--f-head); color: #fff; }
+.sfoot .card span { font-size: 12px; }
+
+.sidescrim { position: fixed; inset: 0; z-index: 390; display: none; }
+
+.stage { flex: 1; min-width: 0; display: flex; flex-direction: column; padding: 16px 28px 28px; }
+
+header.top {
+  display: flex; align-items: center; gap: 12px; margin-bottom: 18px; flex-wrap: wrap;
+}
+.ibtn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+  min-width: 40px; height: 40px; padding: 0 10px; border-radius: 999px;
+  border: 1px solid var(--line); background: var(--card); color: var(--ink);
+}
+.ibtn.menu { display: none; }
+.ibtn svg { width: 19px; height: 19px; }
+
+.search {
+  flex: 1; min-width: 220px; max-width: 480px; height: 42px; padding: 0 14px;
+  border-radius: 999px; border: 1px solid var(--line); background: var(--card);
+  display: flex; align-items: center; gap: 10px; color: var(--muted); text-align: left;
+}
+.search svg { width: 18px; height: 18px; stroke: currentColor; fill: none; stroke-width: 2; flex: none; }
+.search span { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 14.5px; }
+.search kbd { font: 600 11.5px var(--f-body); padding: 2px 7px; border-radius: 7px; border: 1px solid var(--line); background: var(--card2); color: var(--muted); }
+
+.toolz { margin-left: auto; display: flex; align-items: center; gap: 8px; }
+.lang {
+  display: inline-flex; align-items: center; gap: 4px; padding: 3px; border-radius: 999px;
+  border: 1px solid var(--line); background: var(--card);
+}
+.lang svg { width: 16px; height: 16px; stroke: var(--muted); fill: none; stroke-width: 1.8; margin-left: 6px; }
+.lang button { border: 0; background: transparent; padding: 5px 11px; border-radius: 999px; font-weight: 700; font-size: 13px; color: var(--ink); }
+
+.popwrap { position: relative; }
+.bell { position: relative; }
+.bell b { position: absolute; top: -4px; right: -4px; min-width: 18px; height: 18px; padding: 0 5px; border-radius: 999px; font-size: 11px; line-height: 18px; color: #fff; text-align: center; }
+.pop {
+  position: absolute; right: 0; top: 48px; width: min(360px, 88vw); max-height: 70vh; overflow-y: auto;
+  background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 14px;
+  box-shadow: 0 20px 50px rgba(0,0,0,.22); z-index: 600;
+}
+.pop h3 { margin: 0 0 10px; font: 700 16px var(--f-head); }
+.pop ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.pop li { padding: 10px 12px; border-radius: 12px; background: var(--card2); border: 1px solid var(--line2); font-size: 13.5px; }
+.pop li b { display: block; font-size: 12px; color: var(--accent-ink); margin-bottom: 2px; }
+
+.avatar { width: 40px; height: 40px; border-radius: 50%; padding: 0; overflow: hidden; display: grid; place-items: center; }
+
+#main { flex: 1; }
+.subtabs {
+  display: flex; flex-wrap: wrap; gap: 6px; padding: 6px; border-radius: 999px;
+  border: 1px solid var(--line); background: var(--card); margin-bottom: 20px; width: fit-content; max-width: 100%;
+}
+.subtabs button {
+  border: 0; background: transparent; padding: 8px 15px; border-radius: 999px;
+  font-weight: 600; font-size: 14px; color: var(--ink);
+}
+
+.evl { list-style: none; margin: 0 0 14px; padding: 0; display: grid; gap: 10px; }
+.evl li { display: flex; gap: 10px; align-items: flex-start; padding: 10px 12px; border-radius: 12px; background: var(--card2); border: 1px solid var(--line2); }
+.evl li::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--accent); margin-top: 7px; flex: none; }
+.evl li b { display: block; font-size: 14.5px; }
+.evl li span { font-size: 12.5px; }
+.vall { display: block; text-align: center; padding: 10px; border-radius: 12px; text-decoration: none; font-weight: 700; margin-top: auto; }
+
+@media (max-width: 960px) {
+  .sbar { position: fixed; left: 0; top: 0; bottom: 0; transform: translateX(-105%); }
+  body.nav-open .sbar { transform: translateX(0); }
+  body.nav-open .sidescrim { display: block; }
+  .ibtn.menu { display: inline-flex; }
+  .stage { padding: 14px 16px 24px; }
+  .search { min-width: 0; order: 2; flex-basis: 100%; max-width: none; }
+  .toolz { margin-left: auto; }
+}

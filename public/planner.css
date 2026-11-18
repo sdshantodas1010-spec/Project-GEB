@@ -1,0 +1,35 @@
+/* Planner & Today strip styles */
+.pl-ts {
+  display: flex; flex-wrap: wrap; gap: 14px 24px; align-items: center; justify-content: space-between;
+  padding: 16px 20px; border-radius: 18px; border: 1px solid var(--line); background: var(--card);
+  box-shadow: var(--shadow); margin-bottom: 16px;
+}
+.pl-ts-col { flex: 1; min-width: 220px; }
+.pl-ts-k { font-size: 12.5px; font-weight: 700; color: var(--muted); }
+.pl-ts-v { font: 700 17px/1.3 var(--f-head); color: var(--ink); margin-top: 2px; }
+.pl-ts-s { font-size: 13.5px; color: var(--muted); margin-top: 2px; }
+
+.pl-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 18px; }
+.pl-card {
+  border: 1px solid var(--line); border-radius: 18px; background: var(--card);
+  padding: 18px 20px; box-shadow: var(--shadow);
+}
+.pl-hd { display: flex; flex-wrap: wrap; gap: 10px; align-items: flex-start; justify-content: space-between; margin-bottom: 12px; }
+.pl-hd h3 { margin: 0; font: 700 18px var(--f-head); }
+.pl-lk {
+  border: 0; background: transparent; padding: 0; color: var(--accent-ink);
+  font-weight: 700; font-size: 14px; text-decoration: underline; text-underline-offset: 3px;
+}
+.pl-ban { padding: 10px 14px; border-radius: 12px; background: var(--accent-soft); color: var(--accent-ink); font-size: 14px; margin-bottom: 12px; }
+.pl-list { list-style: none; padding: 0; margin: 12px 0 0; display: grid; gap: 8px; }
+.pl-item {
+  display: flex; align-items: center; justify-content: space-between; gap: 10px;
+  padding: 10px 12px; border-radius: 12px; background: var(--card2); border: 1px solid var(--line2);
+}
+.pl-item b { display: block; font-size: 15px; }
+.pl-item small { color: var(--muted); font-size: 13px; }
+.pl-att-row { display: flex; align-items: center; gap: 8px; padding: 10px 0; border-bottom: 1px solid var(--line2); }
+.pl-att-row:last-child { border-bottom: 0; }
+.pl-att-name { flex: 1; min-width: 0; }
+.pl-att-name b { display: block; font-size: 14.5px; }
+.pl-att-name small { color: var(--muted); font-size: 12.5px; }

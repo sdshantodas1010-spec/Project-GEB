@@ -62,6 +62,20 @@ test('server serves index.html, /api/data, /data.json, and /api/grade-status cle
     assert.equal(missingApiRes.status, 404);
     const missingApiJson = await missingApiRes.json();
     assert.equal(missingApiJson.error, 'API route not found');
+
+    const refs = new Set<string>();
+    for (const m of homeHtml.matchAll(/(?:src|href)="(\/[^"]+)"/g)) {
+      refs.add(m[1]);
+    }
+    const manifestRaw = fs.readFileSync(path.join(process.cwd(), 'public', 'manifest.webmanifest'), 'utf8');
+    const manifest = JSON.parse(manifestRaw);
+    for (const icon of manifest.icons || []) {
+      if (icon.src && icon.src.startsWith('/')) refs.add(icon.src);
+    }
+    for (const ref of refs) {
+      const r = await fetch(`${srv.baseUrl}${ref}`);
+      assert.equal(r.status, 200, `Expected 200 for referenced asset ${ref}, got ${r.status}`);
+    }
   } finally {
     await srv.close();
   }

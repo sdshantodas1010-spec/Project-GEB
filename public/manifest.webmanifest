@@ -1,0 +1,14 @@
+{
+  "name": "GENESIS 22 — GEB স্টুডেন্ট হাব",
+  "short_name": "GENESIS 22",
+  "description": "SUST ৩৬তম ব্যাচ, জেনেটিক ইঞ্জিনিয়ারিং ও বায়োটেকনোলজি বিভাগ — সিলেবাস, প্রশ্নব্যাংক, বায়োটেক টুলস ও প্ল্যানার।",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#F5F0DE",
+  "theme_color": "#12301F",
+  "icons": [
+    { "src": "/icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/icons/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "/icons/maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

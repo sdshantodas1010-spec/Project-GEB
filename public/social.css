@@ -1,0 +1,10 @@
+/* DNA Card & social section layout */
+.sx-dna { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 22px; align-items: start; }
+@media (max-width: 860px) { .sx-dna { grid-template-columns: 1fr; } }
+.sx-dna-ctl { border: 1px solid var(--line); border-radius: 20px; background: var(--card); padding: 20px; }
+.sx-dna-pv { border: 1px solid var(--line); border-radius: 20px; background: var(--card); padding: 14px; display: grid; place-items: center; }
+.sx-dna-pv canvas { width: 100%; max-width: 440px; height: auto; border-radius: 14px; display: block; }
+.sx-pp { margin-top: 14px; padding: 12px 14px; border-radius: 12px; background: var(--card2); border: 1px solid var(--line2); }
+.sx-pp summary { cursor: pointer; font-weight: 700; }
+.sx-dec { margin: 8px 0 0; font-weight: 700; color: var(--accent-ink); }
+.sx-dec.err { color: var(--signal); }

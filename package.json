@@ -7,7 +7,7 @@
     "build": "node build-data.js",
     "dev": "node build-data.js && node server.js",
     "start": "node server.js",
-    "lint": "node --check server.js && node --check build-data.js"
+    "lint": "node --check server.js && node --check build-data.js && for f in public/*.js; do node --check \"$f\" || exit 1; done"
   },
   "dependencies": {
     "express": "^4.21.2"

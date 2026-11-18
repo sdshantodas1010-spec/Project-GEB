@@ -64,7 +64,7 @@ body{background:var(--paper)}
 .g-d{font:500 clamp(16px,1.5vw,19px)/1.4 var(--f-body);color:var(--muted);margin:0}
 .g-t{font:italic 400 16px/1.5 var(--f-head);color:var(--muted);margin:22px 0 26px;padding-left:14px;border-left:3px solid var(--am);max-width:38ch}
 div#app:nth-of-type(1) > div:nth-of-type(2) > main#main:nth-of-type(1) > div#v-home:nth-of-type(1) > div#dash:nth-of-type(2) > section:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(3){display:none}
-.g-cta{display:flex;flex-wrap:wrap;gap:12px}
+.g-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}
 .g-hero .go{margin:0;align-self:auto;display:inline-flex;align-items:center;padding:13px 22px;border-radius:12px;font-weight:700;font-size:16px;text-decoration:none;color:var(--on-accent);background:var(--accent);box-shadow:none;border:1.5px solid var(--accent)}
 .g-hero .go.sec{background:transparent;color:var(--ink);border-color:var(--line)}
 .g-hero .go:hover{filter:brightness(1.06)} .g-hero .go.sec:hover{border-color:var(--accent)}
