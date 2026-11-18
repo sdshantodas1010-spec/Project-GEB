@@ -384,18 +384,6 @@ secs.forEach(id=>{const el=document.getElementById(id);if(el)io.observe(el);});
 
 
 /* ---------- নোটিস, ফাইল, ভিজিট ---------- */
-const dismissed=new Set();
-let noticeCat='all', noticeAll=false;
-function renderNotices(){
-  const live=[...D.notices].filter(n=>!dismissed.has(n.id));
-  const cats=[...new Set(live.map(n=>n.cat||'সাধারণ'))];
-  if(noticeCat!=='all'&&!cats.includes(noticeCat)) noticeCat='all';
-  let list=live.filter(n=>noticeCat==='all'||(n.cat||'সাধারণ')===noticeCat).sort((a,b)=>(b.pinned-a.pinned)||String(b.date).localeCompare(String(a.date)));
-  const total=list.length; if(!noticeAll) list=list.slice(0,4);
-  const chips=cats.length>1?`<div class="ncats" role="group" aria-label="নোটিসের ক্যাটাগরি"><button class="nc" data-nc="all" aria-pressed="${noticeCat==='all'}">সব</button>${cats.map(c=>`<button class="nc" data-nc="${esc(c)}" aria-pressed="${noticeCat===c}">${esc(c)}</button>`).join('')}</div>`:'';
-  $('#notices').innerHTML=live.length?`<div class="wrap">${chips}${list.map(n=>`<div class="notice ${n.type}" role="note"><span class="nb">${n.type==='new'?'নতুন':n.type==='warn'?'জরুরি':'নোটিস'}</span><span class="ncat">${esc(n.cat||'সাধারণ')}</span><span class="nt">${esc(n.text)}</span><span class="nd">${esc(n.date)}</span><button class="x" data-dis="${n.id}" aria-label="বন্ধ করুন">×</button></div>`).join('')}${total>4?`<button class="nmore" data-nmore>${noticeAll?'কম দেখুন':'আরও '+bn(total-4)+'টি নোটিস দেখুন'}</button>`:''}</div>`:'';
-}
-$('#notices').addEventListener('click',e=>{const b=e.target.closest('[data-dis]');if(b){dismissed.add(+b.dataset.dis);renderNotices();return;}const c=e.target.closest('[data-nc]');if(c){noticeCat=c.dataset.nc;renderNotices();return;}if(e.target.closest('[data-nmore]')){noticeAll=!noticeAll;renderNotices();}});
 let resC='all';
 const fsz=n=>n>1048576?(n/1048576).toFixed(1)+' MB':Math.max(1,Math.round(n/1024))+' KB';
 function renderResources(){
@@ -406,7 +394,7 @@ function renderResources(){
 }
 if($('#resFilter')) $('#resFilter').addEventListener('click',e=>{const b=e.target.closest('[data-c]');if(b){resC=b.dataset.c;renderResources();}});
 
-renderNotices(); if($('#resList')) renderResources();
+if($('#resList')) renderResources();
 
 /* ---------- শুরু ---------- */
 renderSyllabus(); renderHot(); setupFilters(); renderBank(); renderGpa(); renderProgram();
